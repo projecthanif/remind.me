@@ -1,0 +1,163 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: monospace;
+}
+
+body {
+    background-color: #F0F0F0;
+}
+
+nav {
+    padding: 5px;
+}
+
+ul.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+li {
+    /* float: left; */
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+li>a {
+    color: black;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.left {
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.body-left {
+    padding: 45px;
+    width: 50%;
+    flex-direction: column;
+}
+
+.body-left.one {
+    padding: 80px;
+    width: 50%;
+    flex-direction: column;
+}
+
+.body-right.two {
+    margin-left: 250px;
+    margin-top: 80px;
+    width: 30%;
+}
+
+.para {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.a-link {
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+.h1-text {
+    font-size: 70px;
+    font-weight: 900;
+}
+
+.btn {
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 40px;
+    margin-left: 150px;
+    border: none;
+    width: 200px;
+    background-color: #BEE5D3;
+}
+
+.btn:hover {
+    background-color: #C0D6D2;
+}
+
+.card {
+    padding: 30px;
+    background-color: #E3EAE9;
+    border-radius: 10px;
+    height: 400px;
+    width: 60%;
+    margin-left: 100px;
+    margin-top: -60px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 17px;
+    font-weight: light;
+}
+
+.h1-text.three {
+    margin-left: 180px;
+    margin-top: 50px;
+}
+
+.label.three {
+    margin-top: 20px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #C0D6D2;
+}
+
+
+.form-btn {
+    margin-top: 25px;
+    margin-left: 50px;
+    border-radius: 20px;
+    padding: 15px;
+    width: 70%;
+    background-color: #4D897E;
+    color: white;
+}
+
+.card.three {
+    margin-top: 30px;
+    height: 250px;
+    width: 80%;
+    margin-bottom: 0px;
+    padding: 40px;
+}
+
+.a-link {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form-btn.three {
+    margin: 0px;
+    margin-left: 10px;
+    width: 90%;
+}
+
