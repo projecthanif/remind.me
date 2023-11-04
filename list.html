@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/styles2.css" />
-    <title>List</title>
+    <title>remind</title>
   </head>
   <body>
     <aside>
-      <h3 class="title">remind.me</h3>
+      <div class="flex">
+        <h3 class="title">remind.me</h3>
+        <button id="close"></button>
+      </div>
       <ul class="aside">
         <li>
           <a href="#" class="aside-link">Lists</a>
@@ -27,10 +30,16 @@
       </ul>
     </aside>
     <header>
-      <h2 class="title">Your Lists</h2>
-      <div class="user-info">
-        <h3 class="title v2">Welcome, hanif</h3>
-        <!-- <img src="#" alt="user"> -->
+      <div class="lg-header">
+        <h2 class="title t1">Your Lists</h2>
+        <div class="user-info">
+          <h3 class="title v2">Welcome, hanif</h3>
+          <!-- <img src="#" alt="user"> -->
+        </div>
+      </div>
+      <div class="sm-header">
+        <h3 class="sm title">remind.me</h3>
+        <button class="navbar-btn" id="navbar"></button>
       </div>
     </header>
     <main>
@@ -152,4 +161,6 @@
       </section>
     </main>
   </body>
+
+  <script src="assets/js/app.js"></script>
 </html>
