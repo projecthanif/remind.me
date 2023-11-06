@@ -240,10 +240,12 @@ header {
   width: 700px;
   height: 380px;
   border-radius: 20px;
-  position: fixed;
+  position: absolute;
   top: 10%;
   left: 15%;
+  overflow: scroll;
 }
+
 
 .model-title {
   font-size: 45px;
@@ -313,4 +315,32 @@ header {
 .pill.black.r-end {
   position: absolute;
   right: 20%;
+}
+
+@media screen and (max-width: 600px) {
+  .model {
+    padding: 20px;
+    width: 45vh;
+    height: fit-content;
+    left: 2vh;
+  }
+  .model-title {
+    font-size: 20px;
+  }
+  .model-body {
+    margin-top: 4px;
+  }
+  .model-foot {
+    margin-top: -10px;
+  }
+  .title.fs-3 {
+    margin-right: 4px;
+  }
+  .pill {
+    margin-right: 3px;
+  }
+
+  .pill.black.r-end {
+    right: 0%;
+  }
 }
