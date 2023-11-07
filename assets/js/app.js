@@ -21,7 +21,7 @@ function navCollapes()
 }
 
 
-let model = document.getElementById("model");
+let model = document.getElementsByClassName("btn-2")[0];
 
 model.addEventListener("click", modelToggle);
 
