@@ -28,7 +28,9 @@
         <div class="body-left one">
           <h1 class="h1-text">stay organized,</h1>
           <h1 class="h1-text">stay relaxed</h1>
-          <button class="btn green">GET STARTED</button>
+          <a href="list.html" class="link">
+            <button class="btn green">GET STARTED</button>
+          </a>
         </div>
       </section>
     </main>

@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #E3EAE9;
+  background-color: #e3eae9;
 }
 
 aside {
@@ -229,4 +229,118 @@ header {
   font-weight: bolder;
   background-color: inherit;
   font-size: 15px;
+}
+
+/** MODEL */
+
+.model {
+  display: none;
+  background-color: #c0d6d2;
+  padding: 60px;
+  width: 700px;
+  height: 380px;
+  border-radius: 20px;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  overflow: scroll;
+}
+
+
+.model-title {
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+.model-body {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+/* .model-description {
+
+} */
+
+.priority-level {
+  display: flex;
+  margin-top: 30px;
+}
+
+.title.fs-3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.pill {
+  margin-right: 20px;
+  padding: 5px;
+  width: 60px;
+  height: 13px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  font-weight: bolder;
+}
+
+.pill.yellow {
+  background-color: rgb(126, 126, 13);
+}
+
+.pill.blue {
+  background-color: rgb(10, 80, 103);
+}
+
+.pill.red {
+  background-color: red;
+}
+
+.pill.white {
+  background-color: white;
+  color: #9de9dd;
+}
+
+.pill.black {
+  background-color: black;
+}
+
+.model-foot {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+
+.pill.black.r-end {
+  position: absolute;
+  right: 20%;
+}
+
+@media screen and (max-width: 600px) {
+  .model {
+    padding: 20px;
+    width: 45vh;
+    height: fit-content;
+    left: 2vh;
+  }
+  .model-title {
+    font-size: 20px;
+  }
+  .model-body {
+    margin-top: 4px;
+  }
+  .model-foot {
+    margin-top: -10px;
+  }
+  .title.fs-3 {
+    margin-right: 4px;
+  }
+  .pill {
+    margin-right: 3px;
+  }
+
+  .pill.black.r-end {
+    right: 0%;
+  }
 }
