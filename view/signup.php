@@ -34,7 +34,7 @@
             </div>
             <div class="body-left two">
                 <div class="card two">
-                    <form action="#" method="post" class="form">
+                    <form action="" method="post" class="form">
                         <label for="username">User Name</label>
                         <input type="text" name="username" id="">
                         <label for="email">Email</label>

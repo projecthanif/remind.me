@@ -5,3 +5,5 @@ use App\User;
 
 $user = new User();
 
+require_once dirname(__FILE__) . "/../view/login.php";
+

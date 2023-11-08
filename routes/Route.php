@@ -18,10 +18,7 @@ class Route
 
 $path = require(dirname(__FILE__) . "/routes.php");
 
-
-
 $url = parse_url($_SERVER["REQUEST_URI"])["path"];
-
 
 $route = new Route();
 
