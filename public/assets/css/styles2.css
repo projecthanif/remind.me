@@ -344,3 +344,8 @@ header {
     right: 0%;
   }
 }
+
+.fa-plus {
+  text-align: center;
+  margin-top: -20px;
+}

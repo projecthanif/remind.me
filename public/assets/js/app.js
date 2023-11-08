@@ -45,3 +45,14 @@ function modelCollapse()
     model.style.display = "none";
     console.log('Collapse model');
 }
+
+/** MODEL FORM */
+/** */
+
+let form = document.getElementById("form");
+form.addEventListener("click", modelFormToggle);
+
+function modelFormToggle()
+{
+    
+}
