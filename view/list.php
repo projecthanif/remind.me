@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/styles2.css" />
+    <link rel="stylesheet" href="/assets/css/styles2.css" />
     <title>remind</title>
   </head>
   <body>
     <aside>
       <div class="flex">
-        <a href="index.html" class="aside-link">
+        <a href="/" class="aside-link">
           <h3 class="title">remind.me</h3>
         </a>
         <button id="close"></button>
@@ -129,5 +129,5 @@
     </main>
   </body>
 
-  <script src="assets/js/app.js"></script>
+  <script src="/assets/js/app.js"></script>
 </html>

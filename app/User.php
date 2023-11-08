@@ -10,7 +10,6 @@ class User
     private string $email;
     private string $password;
     private string $emailVerified;
-    private string $passwordVerified;
     private string $token;
 
     public function __construct()
@@ -19,8 +18,6 @@ class User
 
         if (!$this->conn) {
             throw new \Exception("Connection Failed");
-        } else {
-            echo "connected";
         }
     }
 
@@ -29,34 +26,63 @@ class User
         string $email,
         string $password
     ) {
-        $this->id = User::uniqid();
-        $this->name = $name;
-        $this->email = $email;
-        $this->password = $password;
+        $this->id = self::uniqid();
+        $this->name = self::filterInput($name);
+        $this->email = self::filterEmail($email);
+        $this->password = self::passwordHash($password);
+        $this->token = self::token();
 
         $query = $this->conn->prepare("INSERT INTO users(id, username, email, password, token) VALUE(?,?,?,?,?)");
-        $query = $query->bind_param('sssss', $this->id, $this->name, $this->email, $this->password, $this->token);
+        $query->bind_param('sssss', $this->id, $this->name, $this->email, $this->password, $this->token);
 
-        if ($query) {
+        if ($query->execute()) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public function verifyEmail()
+    {
         
+    }
+    public function passwordHash($password): string
+    {
+        $password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+        return $password_hash;
+    }
+    private function filterInput($value): string
+    {
+        $data = htmlspecialchars($value);
+        $data = stripcslashes($value);
+        $data = trim($value);
+
+        return $data;
+    }
+
+    private function filterEmail($value): string
+    {
+        $data = filter_var($value, FILTER_VALIDATE_EMAIL);
+        $data = filter_var($value, FILTER_SANITIZE_EMAIL);
+
+        return $data;
     }
 
     private function uniqid()
     {
         $uniqid = "user_id_";
         $uniqid .= (uniqid());
-        echo strlen($uniqid) . PHP_EOL;
         return $uniqid;
     }
 
-    private function token()
+    private function token(): string
     {
+        $token = openssl_random_pseudo_bytes(4);
+        //Convert the binary data into hexadecimal representation.
+        $token = bin2hex($token);
 
-        return $this->token;
+        return $token;
     }
     public function __destruct()
     {

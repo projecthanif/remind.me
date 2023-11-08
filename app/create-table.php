@@ -14,10 +14,9 @@ $conn = $conn_db->connectionDB();
 //     "CREATE TABLE users(
 //  id VARCHAR (50) UNIQUE,
 //  username VARCHAR(50),
-//  email VARCHAR (50), 
+//  email VARCHAR (50) UNIQUE, 
 //  password VARCHAR(100), 
 //  emailVerified VARCHAR (10) DEFAULT 'false',
-//  passwordVerified VARCHAR(10) DEFAULT 'false',
 //  reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 //  token VARCHAR(100))"
 // );
