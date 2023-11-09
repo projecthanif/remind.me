@@ -94,6 +94,10 @@ header {
   border-radius: 10px;
 }
 
+.btn.toggle:hover {
+  background-color:#9de9dd;
+}
+
 .user-info {
   display: flex;
   flex-direction: row;
