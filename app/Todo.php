@@ -11,7 +11,7 @@ class Todo
     private string $due_date;
     private string $user_id;
     private string $priority;
-    public bool|\mysqli $conn;
+    private bool|\mysqli $conn;
     public function __construct()
     {
         $this->conn = (new Database)->connectionDB();

@@ -3,7 +3,7 @@ namespace App;
 
 class User
 {
-    private $conn;
+    private bool|\mysqli $conn;
     private string $id;
     private string $name;
     private string $email;
