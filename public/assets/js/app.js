@@ -54,5 +54,16 @@ form.addEventListener("click", modelFormToggle);
 
 function modelFormToggle()
 {
-    
+    let model = document.getElementsByClassName("model-2")[0];
+    model.style.display = "block";
+}
+
+/** CLOSE */
+let formClose = document.getElementById("cancel");
+modelClose.addEventListener("click", modelFormCollapse);
+
+function modelFormCollapse()
+{
+    let model = document.getElementsByClassName("model-2")[0];
+    model.style.display = "none";
 }
