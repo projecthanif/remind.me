@@ -420,3 +420,25 @@ option {
     margin-top: 40px;
   }
 }
+
+.priority-level.two {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.seperate {
+  display: flex;
+  justify-content: space-between;
+  /* width: 70%; */
+}

@@ -1,11 +1,19 @@
 <article class="model-2">
-    <form action="#" class="form-model" method="get">
-        <label for="title" class="title form">Title</label>
-        <input type="text" name="title" id="" class="form-text">
+    <form action="" class="form-model" method="post">
+        <div class="seperate">
+            <div class="form-title">
+                <label for="title" class="title form">Title</label>
+                <input type="text" name="title" id="" class="form-text">
+            </div>
+            <div class="time">
+                <label for="due date" class="title form">Due Date</label>
+                <input type="date" name="date" id="" class="form-text">
+            </div>
+        </div>
         <div class="model-body">
             <label for="description" class="title form">Description</label>
-            <textarea name="body" id="" cols="70" rows="10"></textarea>
-            <div class="priority-level">
+            <textarea name="description" id="" cols="70" rows="10"></textarea>
+            <div class="priority-level two">
                 <label for="priority">
                     Priority:
                 </label>
@@ -19,7 +27,7 @@
         </div>
         <div class="model-foot-2">
             <div class="pill red" id="cancel" onclick="modelFormCollapse()">Cancel</div>
-            <input type="submit" class="pill black r-end form"></input>
+            <input type="submit" name="submit" class="pill black r-end form"></input>
         </div>
     </form>
 </article>

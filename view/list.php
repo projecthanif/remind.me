@@ -56,30 +56,28 @@
         <button class="btn toggle" onclick="modelFormToggle()" id="form">
           <i class="fa-solid fa-plus fa-2x"></i>
         </button>
-        <?php require_once (dirname(__FILE__) . "/../view/partials/card-form.php")?>
-        <div class="card-2">
-          <div class="card-head">
-            <div class="head-2">
-              <div class="color red"></div>
-              <h6 class="title v4">Title</h6>
-            </div>
-            <button class="btn-2" onclick="modelToggle()">></button>
-          </div>
-          <p class="text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim
-            expedita mollitia velit natus sint voluptates, repudiandae
-          </p>
-        </div>
+        <?php require_once(dirname(__FILE__) . "/../view/partials/card-form.php") ?>
+
+        <?php if (!empty($lists)) : ?>
+
+          <?php foreach ($lists as $list) : ?>
+
+            <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+
+          <?php endforeach; ?>
+
+        <?php endif; ?>
       </div>
       <div class="card">
         <h5 class="title v3">In Progress</h5>
+        <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
       </div>
       <div class="card">
         <h5 class="title v3">Completed</h5>
-
+        <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
       </div>
     </section>
-    <?php require_once (dirname(__FILE__) . "/../view/partials/card-model.php")?>
+    <?php require(dirname(__FILE__) . "/../view/partials/card-model.php") ?>
   </main>
 </body>
 

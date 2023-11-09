@@ -28,3 +28,20 @@ $conn = $conn_db->connectionDB();
 // }
 
 
+/** QUERY FOR todo Table */
+
+// $query = $conn->query("CREATE TABLE todo(
+//     id VARCHAR(50), 
+//     user_id VARCHAR(50),
+//     title VARCHAR(50),
+//     description VARCHAR(200),
+//     priority VARCHAR(20),
+//     due_date TIMESTAMP,
+//     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+// ");
+
+// if  ($query) {
+//     echo "created";
+// } else {
+//     echo "failed due to: ". $conn->error;
+// }
