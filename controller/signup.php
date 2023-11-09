@@ -1,10 +1,14 @@
 <?php
-
+session_start();
 use App\User;
 
 require_once dirname(__FILE__) . "/../view/signup.php";
 require_once dirname(__FILE__) . "/path.php";
 
+
+if (!isset($_SESSION['name'])) 
+{
+    
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $username = $_POST['username'] ?? '';
@@ -23,4 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             echo "<script>alert('Failed')</script>";
         }
     }
+}
+
+} else {
+    header("Location: /todo");
 }

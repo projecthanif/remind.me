@@ -28,8 +28,8 @@
             <h1 class="h1-text three">log in.</h1>
             <div class="card three">
                 <form action="" method="post" class="form">
-                    <label for="username">User Name</label>
-                    <input type="text" name="username" id="">
+                    <label for="username">Email</label>
+                    <input type="text" name="email" id="">
                     <label for="password" class="label three">Password</label>
                     <input type="password" name="password" id="">
                     <a href="#" class="a-link three">Forget password?</a>

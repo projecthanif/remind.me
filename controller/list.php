@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once dirname(__FILE__) . "/path.php";
-require_once dirname(__FILE__) . "/../view/list.php";
 
+require_once dirname(__FILE__) . "/../view/list.php";

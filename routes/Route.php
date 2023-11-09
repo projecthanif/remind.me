@@ -4,7 +4,7 @@ namespace Routes;
 
 class Route
 {
-    function router($url, $path)
+    public function router($url, $path)
     {
         if (array_key_exists($url, $path)) {
             return $path[$url];

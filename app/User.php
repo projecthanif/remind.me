@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 class User
@@ -42,15 +41,39 @@ class User
         }
     }
 
+    public function userLogin($email, $password): bool
+    {
+        $this->email = self::filterEmail($email);
+        $query = $this->conn->query("SELECT * FROM users WHERE email = '{$this->email}'");
+
+        if (mysqli_num_rows($query) === 1) {
+            $data = $query->fetch_assoc();
+            $this->password = self::passwordVerify($password, $data["password"]);
+            if ($this->password) {
+                $_SESSION['name'] = $data['username'];
+                $_SESSION['id'] = $data['id'];
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
     public function verifyEmail()
     {
-        
     }
-    public function passwordHash($password): string
+    private function passwordHash($password): string
     {
         $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
         return $password_hash;
+    }
+
+    private function passwordVerify($value, $hash): bool
+    {
+        $return = password_verify($value, $hash);
+        return $return;
     }
     private function filterInput($value): string
     {
