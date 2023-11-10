@@ -70,11 +70,27 @@
       </div>
       <div class="card">
         <h5 class="title v3">In Progress</h5>
-        <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+        <?php if (!empty($lists)) : ?>
+
+          <?php foreach ($lists as $list) : ?>
+
+            <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+
+          <?php endforeach; ?>
+
+        <?php endif; ?>
       </div>
       <div class="card">
         <h5 class="title v3">Completed</h5>
-        <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+        <?php if (!empty($lists)) : ?>
+
+          <?php foreach ($lists as $list) : ?>
+
+            <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+
+          <?php endforeach; ?>
+
+        <?php endif; ?>
       </div>
     </section>
     <?php require(dirname(__FILE__) . "/../view/partials/card-model.php") ?>
