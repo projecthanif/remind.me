@@ -20,9 +20,6 @@ class Database
             self::DATABASE_NAME
         );
 
-        if (!$conn) {
-            return false;
-        }
         return $conn;
     }
 }

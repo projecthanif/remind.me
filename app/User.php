@@ -1,5 +1,8 @@
 <?php
+
 namespace App;
+
+use App\Database;
 
 class User
 {
@@ -13,10 +16,11 @@ class User
 
     public function __construct()
     {
-        $this->conn = (new Database())->connectionDB();
-
-        if (!$this->conn) {
-            throw new \Exception("Connection Failed");
+        try {
+            $this->conn = (new Database())->connectionDB();
+        } catch (\Throwable $e) {
+            echo  $e->getMessage();
+            exit;
         }
     }
 
@@ -109,6 +113,6 @@ class User
     }
     public function __destruct()
     {
-        \mysqli_close($this->conn);
+        $this->conn->close();
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Database;
+
 class Todo
 {
     private string $id;
@@ -14,17 +16,25 @@ class Todo
     private bool|\mysqli $conn;
     public function __construct()
     {
-        $this->conn = (new Database)->connectionDB();
+        try {
+            $this->conn = (new Database())->connectionDB();
+            if (!$this->conn) {
+                throw new \Exception("Connection failed");
+            }
+        } catch (\Throwable $e) {
+            echo  $e->getMessage();
+            exit;
+        }
     }
 
-    public function updateTodo(
+    public function createTodo(
         $title,
         $description,
         $due_date,
         $user_id,
         $priority
     ): bool {
-        $this->id = self::uniqid();
+        $this->id = self::uniqId();
         $this->title = self::filterString($title);
         $this->description = self::filterString($description);
         $this->user_id = $user_id;
@@ -53,15 +63,27 @@ class Todo
         $this->id = $id;
         $query = $this->conn->query("SELECT * FROM todo WHERE user_id = '{$this->id}'");
         $arrOfList = [];
-        if (mysqli_num_rows($query) > 0)
-        {
-            while ($data = $query->fetch_assoc())
-            {
+        if (mysqli_num_rows($query) > 0) {
+            while ($data = $query->fetch_assoc()) {
                 $arrOfList[] = $data;
             }
         }
 
         return $arrOfList;
+    }
+
+    public function updateTodo() {
+        
+    }
+
+    public function deleteTodo($id): bool|string
+    {
+        $query = $this->conn->query("DELETE  FROM todo WHERE id = '{$id}'");
+        if ($query) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private function filterString($value): string
@@ -73,7 +95,7 @@ class Todo
         return $value;
     }
 
-    private function uniqid()
+    private function uniqId()
     {
         $uniqid = (uniqid());
         return $uniqid;

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     if  (!empty($title && $description))
     {
-        $return = $todo->updateTodo(
+        $return = $todo->createTodo(
             title: $title,
             description: $description,
             due_date: $due_date,
@@ -29,6 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             echo "<script>alert('Failed')</script>";
         }
     }
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $id = $_GET['del_id'] ?? '';
+
+    $del_item = $todo->deleteTodo($id);
 }
 
 $lists = $todo->getList(id: $user_id);
