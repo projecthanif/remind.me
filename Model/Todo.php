@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace Model;
 
-use App\Database;
+use Model\Database;
 
 class Todo
 {

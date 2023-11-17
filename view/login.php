@@ -27,7 +27,7 @@
         <div class="body-right three">
             <h1 class="h1-text three">log in.</h1>
             <div class="card three">
-                <form action="" method="post" class="form">
+                <form action="/log" method="post" class="form">
                     <label for="username">Email</label>
                     <input type="text" name="email" id="">
                     <label for="password" class="label three">Password</label>

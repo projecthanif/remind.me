@@ -1,7 +1,9 @@
 <?php
 
 require_once dirname(__FILE__) . "/../app/path.php";
-require_once dirname(__FILE__) . "/../routes/Route.php";
+
+
+
 function dd($value)
 {
     echo "<pre>";

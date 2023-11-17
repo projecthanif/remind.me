@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Model;
 use mysqli;
 
 class Database
