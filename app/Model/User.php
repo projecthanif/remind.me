@@ -1,8 +1,10 @@
 <?php
 
-namespace Model;
+namespace App\Model;
 
-use Model\Database;
+use App\Model\Database;
+
+
 
 class User
 {

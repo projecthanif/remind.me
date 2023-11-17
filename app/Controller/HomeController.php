@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use Model\Todo;
+use App\Model\Todo;
+
 
 class HomeController
 {
@@ -10,7 +11,8 @@ class HomeController
     public function index()
     {
         $this->todo = (new Todo());
-        $lists = $this->todo->getList($_SESSION['id']);
+        $id = isset($_SESSION['id']) ? ($_SESSION['id']) : '';
+        $lists = $this->todo->getList($id);
 
         require_once dirname(__FILE__) . "/../../view/" . "list.php";
     }
@@ -36,11 +38,14 @@ class HomeController
                 );
 
                 if ($return) {
-                    echo "<script>alert('Updated')</script>";
+                    header("Location: /todo");
+                    return "<script>alert('Updated')</script>";
                 } else {
+                    header("Location: /todo");
                     echo "<script>alert('Failed')</script>";
                 }
             }
+            header("Location: /todo");
         }
     }
 

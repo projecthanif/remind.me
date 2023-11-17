@@ -2,7 +2,9 @@
 
 namespace App\Controller\Auth;
 
-use Model\User;
+use App\Model\User;
+
+
 
 class SignupController
 {

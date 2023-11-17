@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller\Auth;
 
-use Model\User;
+use App\Model\User;
+
+
 
 class LoginController
 {
