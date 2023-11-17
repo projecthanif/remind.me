@@ -57,7 +57,6 @@
           <i class="fa-solid fa-plus fa-2x"></i>
         </button>
         <?php require_once(dirname(__FILE__) . "/../view/partials/card-form.php") ?>
-
         <?php if (!empty($lists)) : ?>
 
           <?php foreach ($lists as $list) : ?>
@@ -66,7 +65,6 @@
             <?php require(dirname(__FILE__) . "/../view/partials/card-model.php") ?>
 
           <?php endforeach; ?>
-
         <?php endif; ?>
       </div>
       <div class="card">

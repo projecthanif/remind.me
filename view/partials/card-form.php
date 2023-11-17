@@ -1,5 +1,5 @@
 <article class="model-2">
-    <form action="" class="form-model" method="post">
+    <form action="/store" class="form-model" method="post">
         <div class="seperate">
             <div class="form-title">
                 <label for="title" class="title form">Title</label>

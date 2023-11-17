@@ -31,11 +31,13 @@
     </div>
     <div class="model-foot">
         <div class="pill white">EDIT</div>
-        <form action="#" method="get">
+        <form action="/delete" method="delete">
             <input type="hidden" name="del_id" value="<?= $list['id'] ?>">
             <button class="pill red">DELETE</button>
         </form>
         <div class="pill black r-end" id="model-close">ClOSE</div>
     </div>
 </article>
+
+
 

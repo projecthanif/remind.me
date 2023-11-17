@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Model\Todo;
@@ -8,13 +9,16 @@ class HomeController
     protected Todo $todo;
     public function index()
     {
+        $this->todo = (new Todo());
+        $lists = $this->todo->getList($_SESSION['id']);
+
         require_once dirname(__FILE__) . "/../../view/" . "list.php";
     }
 
     public function store()
-    {        
+    {
+        $this->todo = new Todo();
         $user_id = $_SESSION['id'] ?? '';
-
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -22,6 +26,7 @@ class HomeController
             $priority = $_POST['priority'] ?? '';
 
             if (!empty($title && $description)) {
+
                 $return = $this->todo->createTodo(
                     title: $title,
                     description: $description,
@@ -39,17 +44,16 @@ class HomeController
         }
     }
 
-    public function delete($user_id) {
+    public function delete()
+    {
+        $this->todo = new Todo();
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = $_GET['del_id'] ?? '';
-        
-            $del_item = $this->todo->deleteTodo($id);
+
+            $return = $this->todo->deleteTodo($id);
+            if ($return) {
+                header("Location: /todo");
+            }
         }
-        
-        $lists = $this->todo->getList(id: $user_id);
     }
 }
-
-
-
-
