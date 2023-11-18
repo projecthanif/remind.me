@@ -16,10 +16,10 @@
       </li>
       <div class="left">
         <li>
-          <a href="/login" class="nav-link">Login</a>
+          <a href="/user/login" class="nav-link">Login</a>
         </li>
         <li>
-          <a href="/signup" class="nav-link">Sign Up</a>
+          <a href="/user/signup" class="nav-link">Sign Up</a>
         </li>
       </div>
     </ul>

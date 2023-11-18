@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\Database;
+use App\App;
 
 
 
@@ -15,18 +15,11 @@ class Todo
     private string $due_date;
     private string $user_id;
     private string $priority;
-    private bool|\mysqli $conn;
+    private \mysqli $conn;
     public function __construct()
     {
-        try {
-            $this->conn = (new Database())->connectionDB();
-            if (!$this->conn) {
-                throw new \Exception("Connection failed");
-            }
-        } catch (\Throwable $e) {
-            echo  $e->getMessage();
-            exit;
-        }
+
+        $this->conn = App::db();
     }
 
     public function createTodo(
@@ -74,8 +67,8 @@ class Todo
         return $arrOfList;
     }
 
-    public function updateTodo() {
-        
+    public function updateTodo()
+    {
     }
 
     public function deleteTodo($id): bool|string

@@ -2,7 +2,8 @@
 
 namespace App\Model;
 
-use App\Model\Database;
+use App\App;
+
 
 
 
@@ -19,7 +20,7 @@ class User
     public function __construct()
     {
         try {
-            $this->conn = (new Database())->connectionDB();
+            $this->conn = App::db();
         } catch (\Throwable $e) {
             echo  $e->getMessage();
             exit;

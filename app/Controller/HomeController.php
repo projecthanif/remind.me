@@ -58,6 +58,7 @@ class HomeController
             $return = $this->todo->deleteTodo($id);
             if ($return) {
                 header("Location: /todo");
+                return "<script>alert('Deleted Succesfully')</script>";
             }
         }
     }

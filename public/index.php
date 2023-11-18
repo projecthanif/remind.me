@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+use App\App;
 use App\Routes\Route;
 use App\Controller\HomeController;
 use App\Controller\IndexController;
@@ -9,8 +10,7 @@ use App\Controller\Auth\SignupController;
 
 require dirname(__FILE__) . "/path.php";
 
-
-
+define("VIEWS_PATH", dirname(__DIR__) . "/view/");
 
 $route = new Route();
 
@@ -21,11 +21,11 @@ $route
     ->post('/store', [HomeController::class, 'store'])
     ->get('/delete', [HomeController::class, 'delete'])
 
-    ->get('/login', [LoginController::class, 'index'])
-    ->post('/log', [LoginController::class, 'login'])
+    ->get('/user/login', [LoginController::class, 'index'])
+    ->post('/user/log', [LoginController::class, 'login'])
 
-    ->get('/signup', [SignupController::class, 'index'])
-    ->post('/verify', [SignupController::class, 'signup'])
+    ->get('/user/signup', [SignupController::class, 'index'])
+    ->post('/user/verify', [SignupController::class, 'signup'])
 
     ->get('/logout', function () {
         session_start();
@@ -37,8 +37,18 @@ $route
 
 $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
 
-try {
-    echo $route->resolve($uri, strtolower($_SERVER['REQUEST_METHOD']));
-} catch (\Exception $e) {
-    // echo $e->getMessage();
-}
+
+(new App(
+    $route,
+    [
+        'uri' => $uri,
+        'method' => $_SERVER['REQUEST_METHOD']
+    ],
+    [
+        'db_host' => 'localhost',
+        'db_user' => 'root',
+        'db_pass' => '',
+        'db_name' => 'remindDB'
+    ]
+
+))->run();

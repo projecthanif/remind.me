@@ -16,10 +16,10 @@
             </li>
             <div class="left">
                 <li>
-                    <a href="/login" class="nav-link">Login</a>
+                    <a href="/user/login" class="nav-link">Login</a>
                 </li>
                 <li>
-                    <a href="/signup" class="nav-link">Sign Up</a>
+                    <a href="/user/signup" class="nav-link">Sign Up</a>
                 </li>
             </div>
         </ul>
@@ -29,12 +29,12 @@
             <div class="body-right two">
                 <h1 class="h1-text two">sign up.</h1>
                 <p class="para">You already have an account?
-                    <a href="/login" class="a-link">Log in</a>
+                    <a href="/user/login" class="a-link">Log in</a>
                 </p>
             </div>
             <div class="body-left two">
                 <div class="card two">
-                    <form action="/verify" method="post" class="form">
+                    <form action="/user/verify" method="post" class="form">
                         <label for="username">User Name</label>
                         <input type="text" name="username" id="">
                         <label for="email">Email</label>

@@ -30,12 +30,17 @@ class Route
         return $this->register('delete', $route, $action);
     }
 
+    public function update(string $route, callable|array $action): Route
+    {
+        return $this->register('update', $route, $action);
+    }
+
     public function resolve(string $requestUri, string $requestMethod)
     {
         $action = $this->router[$requestMethod][$requestUri] ?? null;
 
         if (!$action) {
-            return throw new RouteNotFoundException(errorPage: dirname(__DIR__) . "/Exception/" . "error.php");
+            return throw new RouteNotFoundException;
         }
 
         if (is_callable($action)) {
@@ -53,6 +58,6 @@ class Route
             }
         }
 
-        return throw new RouteNotFoundException(errorPage: dirname(__DIR__) . "/Exception/" . "error.php");
+        return throw new RouteNotFoundException;
     }
 }

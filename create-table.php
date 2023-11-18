@@ -1,12 +1,14 @@
 <?php
 
-require dirname(__DIR__) . "/app/path.php";
+use App\App;
 
-use App\Database;
+require dirname(__FILE__) . "/app/path.php";
 
-$conn_db = new Database();
 
-$conn = $conn_db->connectionDB();
+
+$conn_db = App::db();
+
+$conn = App::db();
 
 /** QUERY FOR USERS TABLE */
 

@@ -14,10 +14,10 @@
         </li>
         <div class="left">
           <li>
-            <a href="/login" class="nav-link">Login</a>
+            <a href="/user/login" class="nav-link">Login</a>
           </li>
           <li>
-            <a href="/signup" class="nav-link">Sign Up</a>
+            <a href="/user/signup" class="nav-link">Sign Up</a>
           </li>
         </div>
       </ul>
@@ -27,7 +27,7 @@
         <div class="body-right three">
             <h1 class="h1-text three">log in.</h1>
             <div class="card three">
-                <form action="/log" method="post" class="form">
+                <form action="/user/log" method="post" class="form">
                     <label for="username">Email</label>
                     <input type="text" name="email" id="">
                     <label for="password" class="label three">Password</label>

@@ -28,13 +28,15 @@ class SignupController
             $c_password = $_POST['c-password'] ?? '';
 
 
-            if ($password === $c_password) {
-                $new_user = new User();
-                $return = $new_user->addNewUser($username, $email, $password);
-                if ($return) {
-                    header("Location: /login");
-                } else {
-                    echo "<script>alert('Failed')</script>";
+            if (!empty($username && $email && $password))  {
+                if ($password === $c_password) {
+                    $new_user = new User();
+                    $return = $new_user->addNewUser($username, $email, $password);
+                    if ($return) {
+                        header("Location: /user/login");
+                    } else {
+                        echo "<script>alert('Failed')</script>";
+                    }
                 }
             }
         }
