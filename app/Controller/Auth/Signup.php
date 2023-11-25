@@ -6,7 +6,7 @@ use App\Model\User;
 
 
 
-class SignupController
+class Signup
 {
     public function index()
     {

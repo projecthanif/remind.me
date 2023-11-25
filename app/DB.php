@@ -4,10 +4,17 @@ namespace App;
 
 class DB
 {
-    private \mysqli $db;
+    private string $db_name;
 
-    public function __construct(array $config)
-    {
-        
+    public static function config() {
+        return 
+        [
+            'db_host' => 'localhost',
+            'db_user' => 'root',
+            'db_pass' => 'root',
+            'db_name' => 'reminDB'
+        ];
     }
+
+    
 }

@@ -8,7 +8,7 @@ use App\Model\User;
 
 
 
-class LoginController
+class Login
 {
     protected User $user;
     public function index()
@@ -23,14 +23,11 @@ class LoginController
     public function login()
     {
         $this->user = new User();
-
-
+        
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email = $_POST["email"];
             $password = $_POST["password"];
-            // var_dump($_POST);
             $return = $this->user->userLogin(email: $email, password: $password);
-            // var_dump($return);
             if ($return) {
                 header("Location: /todo");
             }

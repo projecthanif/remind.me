@@ -4,7 +4,7 @@
                 <?php if ($list['priority'] === 'low') : ?>
                     <div class="color yellow"></div>
                 <?php elseif ($list['priority'] === 'middle') : ?>
-                    <div class="color yellow"></div>
+                    <div class="color blue"></div>
                 <?php elseif ($list['priority'] === 'high') : ?>
                     <div class="color red"></div>
                 <?php endif; ?>

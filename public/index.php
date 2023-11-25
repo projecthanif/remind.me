@@ -1,14 +1,20 @@
 <?php
 session_start();
 
+
 use App\App;
 use App\Routes\Route;
 use App\Controller\HomeController;
 use App\Controller\IndexController;
-use App\Controller\Auth\LoginController;
-use App\Controller\Auth\SignupController;
+use App\Controller\Auth\Login;
+use App\Controller\Auth\Signup;
+use App\Logout;
 
-require dirname(__FILE__) . "/path.php";
+
+spl_autoload_register(function ($class) {
+    $path = str_replace("\\", "/", dirname(__DIR__) . "/" . lcfirst($class) . ".php");
+    require_once($path);
+});
 
 define("VIEWS_PATH", dirname(__DIR__) . "/view/");
 
@@ -21,18 +27,13 @@ $route
     ->post('/store', [HomeController::class, 'store'])
     ->get('/delete', [HomeController::class, 'delete'])
 
-    ->get('/user/login', [LoginController::class, 'index'])
-    ->post('/user/log', [LoginController::class, 'login'])
+    ->get('/user/login', [Login::class, 'index'])
+    ->post('/user/log', [Login::class, 'login'])
 
-    ->get('/user/signup', [SignupController::class, 'index'])
-    ->post('/user/verify', [SignupController::class, 'signup'])
+    ->get('/user/signup', [Signup::class, 'index'])
+    ->post('/user/verify', [Signup::class, 'signup'])
 
-    ->get('/logout', function () {
-        session_start();
-        unset($_SESSION['name'], $_SESSION['id']);
-        sleep(2);
-        header("Location: /");
-    });
+    ->get('/logout', [Logout::class, 'logout']);
 
 
 $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
@@ -52,3 +53,5 @@ $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
     ]
 
 ))->run();
+
+
