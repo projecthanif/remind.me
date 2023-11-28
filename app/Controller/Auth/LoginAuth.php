@@ -8,7 +8,7 @@ use App\Model\User;
 
 
 
-class Login
+class LoginAuth
 {
     protected User $user;
     public function index()
