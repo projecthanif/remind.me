@@ -1,22 +1,12 @@
 <article class="model">
     <div class="model-title">
+        <!-- <?= var_dump($list) ?> -->
+        <?= $list['id']?>
         <?= (isset($list['title'])) ? $list['title'] : 'Title' ?>
     </div>
     <div class="model-body">
         <p class="model-description">
-            <?= (isset($list['description'])) ? $list['description'] :
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            tempora ab laborum dolorum. Vero praesentium expedita, ipsa nemo
-            ullam facere temporibus aut corporis, rerum beatae molestias ex
-            deserunt aperiam hic. Voluptas, consectetur? Quod earum, dolore
-            eligendi vitae facilis fugit voluptas necessitatibus culpa quis
-            delectus. Ut laboriosam temporibus fugit fugiat amet, dolor tenetur
-            laudantium eum distinctio. Quis, nostrum quas. Soluta, quidem.
-            Delectus ipsa nisi impedit quo eligendi commodi nemo quisquam
-            necessitatibus. Iure fugit eveniet dolores, rerum deleniti
-            voluptatem eum quasi facere quod culpa ea labore nihil dignissimos
-            illum impedit assumenda recusandae."
-            ?>
+            <?= @($list['description']) ?>
         </p>
         <div class="priority-level">
             <h3 class="title fs-3">Priority:</h3>
@@ -38,6 +28,3 @@
         <div class="pill black r-end" id="model-close">ClOSE</div>
     </div>
 </article>
-
-
-

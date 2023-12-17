@@ -73,8 +73,9 @@ class Todo
 
     public function deleteTodo($id): bool|string
     {
-        $query = $this->conn->query("DELETE  FROM todo WHERE id = '{$id}'");
-        if ($query) {
+        $query = $this->conn->prepare("DELETE  FROM todo WHERE id = ?");
+        $query->bind_param('i', $id);
+        if ($query->execute()) {
             return true;
         } else {
             return false;

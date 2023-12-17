@@ -7,10 +7,11 @@ use App\Model\Todo;
 
 class HomeController
 {
-    protected Todo $todo;
+    protected string $user_id;
+
+    public function __construct(protected Todo $todo = new Todo) {}
     public function index()
     {
-        $this->todo = (new Todo());
         $id = isset($_SESSION['id']) ? ($_SESSION['id']) : '';
         $lists = $this->todo->getList($id);
 
@@ -19,24 +20,17 @@ class HomeController
 
     public function store()
     {
-        $this->todo = new Todo();
-        $user_id = $_SESSION['id'] ?? '';
+        $this->user_id = $_SESSION['id'] ?? '';
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $due_date = $_POST['date'] ?? '';
-            $priority = $_POST['priority'] ?? '';
 
-            if (!empty($title && $description)) {
-
-                $return = $this->todo->createTodo(
-                    title: $title,
-                    description: $description,
-                    due_date: $due_date,
-                    user_id: $user_id,
-                    priority: $priority
+            if (!empty($_POST['title'] && $_POST['description'])) {
+                $return = (new Todo())->createTodo(
+                    title: $_POST['title'],
+                    description: $_POST['description'],
+                    due_date: $_POST['date'] ?? '',
+                    user_id: $this->user_id,
+                    priority: $_POST['priority'] ?? ''
                 );
-
                 if ($return) {
                     header("Location: /todo");
                     return "<script>alert('Updated')</script>";

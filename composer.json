@@ -1,9 +1,9 @@
 {
-    "name": "remind.me/mustapha",
+    "name": "mustapha/remind.me",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "RemindMe\\Mustapha\\": "src/"
+            "App\\": "app/"
         }
     },
     "authors": [
@@ -11,5 +11,6 @@
             "name": "projecthanif",
             "email": "iamustapha213@gmail.com"
         }
-    ]
+    ],
+    "require": {}
 }

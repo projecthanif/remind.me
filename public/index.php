@@ -10,11 +10,8 @@ use App\Controller\Auth\LoginAuth;
 use App\Controller\Auth\SignupAuth;
 use App\Logout;
 
+require_once __DIR__ . "/../" . "/vendor/autoload.php";
 
-spl_autoload_register(function ($class) {
-    $path = str_replace("\\", "/", dirname(__DIR__) . "/" . lcfirst($class) . ".php");
-    require_once($path);
-});
 
 define("VIEWS_PATH", dirname(__DIR__) . "/view/");
 
@@ -53,5 +50,3 @@ $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
     ]
 
 ))->run();
-
-

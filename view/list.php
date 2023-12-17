@@ -62,7 +62,6 @@
           <?php foreach ($lists as $list) : ?>
 
             <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
-            <?php require(dirname(__FILE__) . "/../view/partials/card-model.php") ?>
 
           <?php endforeach; ?>
         <?php endif; ?>

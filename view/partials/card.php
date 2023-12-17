@@ -11,6 +11,7 @@
                 <h6 class="title v4"><?= $list['title'] ?></h6>
             </div>
             <button class="btn-2" onclick="modelToggle()">></button>
+            <?php require(dirname(__FILE__) . "/card-model.php") ?>
         </div>
         <p class="text">
             <?= $list['description'] ?>
