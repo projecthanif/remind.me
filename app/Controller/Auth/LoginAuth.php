@@ -29,6 +29,8 @@ class LoginAuth
             $return = $this->user->userLogin($_POST);
             if ($return) {
                 header("Location: /todo");
+            }else {
+                header('Location: /user/login');
             }
         }
     }

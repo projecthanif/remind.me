@@ -74,7 +74,11 @@
 
           <?php foreach ($lists as $list) : ?>
 
-            <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+            <?php if ((new DateTime($list['due_date'])) > (new DateTime('now'))) : ?>
+
+              <?php require(dirname(__FILE__) . "/../view/partials/card.php"); ?>
+
+            <?php endif; ?>
 
           <?php endforeach; ?>
 
@@ -86,7 +90,11 @@
 
           <?php foreach ($lists as $list) : ?>
 
-            <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
+            <?php if ((new DateTime($list['due_date'])) < (new DateTime('now'))) : ?>
+
+              <?php require(dirname(__FILE__) . "/../view/partials/card.php"); ?>
+
+            <?php endif; ?>
 
           <?php endforeach; ?>
 

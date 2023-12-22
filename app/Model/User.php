@@ -41,8 +41,11 @@ class User
         }
     }
 
-    public function userLogin($post): bool
+    public function userLogin($post): bool|string
     {
+        if (empty($post['email'])) {
+            header('Location: /');
+        }
 
         $this->email = self::filterEmail($post['email']);
         $query = $this->conn->query("SELECT * FROM users WHERE email = '{$this->email}'");

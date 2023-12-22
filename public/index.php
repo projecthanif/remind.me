@@ -39,7 +39,6 @@ $route
 
 $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
 
-
 (new App(
     $route,
     [
