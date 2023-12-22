@@ -14,13 +14,16 @@ $conn = App::db();
 
 // $query = $conn->query(
 //     "CREATE TABLE users(
-//  id VARCHAR (50) UNIQUE,
-//  username VARCHAR(50),
-//  email VARCHAR (50) UNIQUE, 
-//  password VARCHAR(100), 
-//  emailVerified VARCHAR (10) DEFAULT 'false',
-//  reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-//  token VARCHAR(100))"
+//         id INT(100) AUTO_INCREMENT,
+//       user_id VARCHAR (50) UNIQUE,
+//       username VARCHAR(50),
+//       email VARCHAR (50) UNIQUE, 
+//       password VARCHAR(100), 
+//       emailVerified VARCHAR (10) DEFAULT 'false',
+//       reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+//       token VARCHAR(100),
+//         PRIMARY KEY(id)
+//     )"
 // );
 
 // if ($query) {
@@ -33,13 +36,14 @@ $conn = App::db();
 /** QUERY FOR todo Table */
 
 // $query = $conn->query("CREATE TABLE todo(
-//     id VARCHAR(50), 
+//      id INT(100) AUTO_INCREMENT,
 //     user_id VARCHAR(50),
 //     title VARCHAR(50),
 //     description VARCHAR(200),
 //     priority VARCHAR(20),
 //     due_date TIMESTAMP,
-//     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+//     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP),
+//      PRIMARY KEY(id)
 // ");
 
 // if  ($query) {

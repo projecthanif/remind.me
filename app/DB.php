@@ -4,17 +4,20 @@ namespace App;
 
 class DB
 {
-    private string $db_name;
+    private \mysqli|bool $conn;
 
-    public static function config() {
-        return 
-        [
-            'db_host' => 'localhost',
-            'db_user' => 'root',
-            'db_pass' => 'root',
-            'db_name' => 'reminDB'
-        ];
+    public function __construct(protected array $config)
+    {
+        $this->conn = new \mysqli(
+            $config['DB_HOST'],
+            $config['DB_USER'],
+            $config['DB_PASS'],
+            $config['DB_DATABASE']
+        );
     }
 
-    
+    public  function config()
+    {
+        return $this->conn;
+    }
 }

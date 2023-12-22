@@ -25,9 +25,8 @@ class LoginAuth
         $this->user = new User();
         
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            $return = $this->user->userLogin(email: $email, password: $password);
+
+            $return = $this->user->userLogin($_POST);
             if ($return) {
                 header("Location: /todo");
             }

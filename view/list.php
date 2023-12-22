@@ -64,7 +64,9 @@
             <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
 
           <?php endforeach; ?>
+
         <?php endif; ?>
+        <?php require(dirname(__FILE__) . "/../view/partials/card-model.php") ?>
       </div>
       <div class="card">
         <h5 class="title v3">In Progress</h5>

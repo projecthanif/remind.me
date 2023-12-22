@@ -22,22 +22,12 @@ class SignupAuth
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-            $username = $_POST['username'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-            $c_password = $_POST['c-password'] ?? '';
-
-
-            if (!empty($username && $email && $password))  {
-                if ($password === $c_password) {
-                    $new_user = new User();
-                    $return = $new_user->addNewUser($username, $email, $password);
-                    if ($return) {
-                        header("Location: /user/login");
-                    } else {
-                        echo "<script>alert('Failed')</script>";
-                    }
-                }
+            $new_user = new User();
+            $return = $new_user->addNewUser($_POST);
+            if ($return) {
+                header("Location: /user/login");
+            } else {
+                echo "<script>alert('Failed')</script>";
             }
         }
     }

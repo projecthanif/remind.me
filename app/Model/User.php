@@ -5,8 +5,6 @@ namespace App\Model;
 use App\App;
 
 
-
-
 class User
 {
     private bool|\mysqli $conn;
@@ -27,18 +25,13 @@ class User
         }
     }
 
-    public function addNewUser(
-        string $name,
-        string $email,
-        string $password
-    ) {
+    public function addNewUser($post) {
         $this->id = self::uniqid();
-        $this->name = self::filterInput($name);
-        $this->email = self::filterEmail($email);
-        $this->password = self::passwordHash($password);
+        $this->name = self::filterInput($post['username']);
+        $this->email = self::filterEmail($post['email']);
+        $this->password = self::passwordHash($post['password']);
         $this->token = self::token();
-
-        $query = $this->conn->prepare("INSERT INTO users(id, username, email, password, token) VALUE(?,?,?,?,?)");
+        $query = $this->conn->prepare("INSERT INTO users(user_id, username, email, password, token) VALUE(?,?,?,?,?)");
         $query->bind_param('sssss', $this->id, $this->name, $this->email, $this->password, $this->token);
 
         if ($query->execute()) {
@@ -48,17 +41,18 @@ class User
         }
     }
 
-    public function userLogin($email, $password): bool
+    public function userLogin($post): bool
     {
-        $this->email = self::filterEmail($email);
-        $query = $this->conn->query("SELECT * FROM users WHERE email = '{$this->email}'");
 
+        $this->email = self::filterEmail($post['email']);
+        $query = $this->conn->query("SELECT * FROM users WHERE email = '{$this->email}'");
+        
         if (mysqli_num_rows($query) === 1) {
             $data = $query->fetch_assoc();
-            $this->password = self::passwordVerify($password, $data["password"]);
+            $this->password = self::passwordVerify($post['password'], $data["password"]);
             if ($this->password) {
                 $_SESSION['name'] = $data['username'];
-                $_SESSION['id'] = $data['id'];
+                $_SESSION['id'] = $data['user_id'];
                 return true;
             } else {
                 return false;

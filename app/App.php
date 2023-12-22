@@ -12,17 +12,12 @@ use App\Exception\RouteNotFoundException;
 
 class App
 {
-    protected static mysqli $db; 
+    protected static mysqli $db;
 
     public function __construct(protected Route $route, protected array $request, protected array $config)
     {
         try {
-            App::$db = \mysqli_connect(
-                $config['db_host'],
-                $config['db_user'],
-                $config['db_pass'],
-                $config['db_name']
-            );
+            App::$db = (new DB($config))->config();
         } catch (\mysqli_sql_exception $e) {
             echo $e->getMessage() . " " . $e->getCode();
         }

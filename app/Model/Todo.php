@@ -15,28 +15,29 @@ class Todo
     private string $due_date;
     private string $user_id;
     private string $priority;
-    private \mysqli $conn;
+    private \mysqli|bool $conn;
+
     public function __construct()
     {
-
         $this->conn = App::db();
     }
 
-    public function createTodo(
-        $title,
-        $description,
-        $due_date,
-        $user_id,
-        $priority
-    ): bool {
+    public function createTodo($post): bool
+    {
+        if (empty($post['description'] && $post['title'])) {
+            return header('Location: /todo');
+        }
+
         $this->id = self::uniqId();
-        $this->title = self::filterString($title);
-        $this->description = self::filterString($description);
-        $this->user_id = $user_id;
-        $this->priority = self::filterString($priority);
-        $this->due_date = self::filterString($due_date);
+        $this->title = self::filterString($post['title']);
+        $this->description = self::filterString($post['description']);
+        $this->user_id = $_SESSION['id'];
+        $this->priority = self::filterString($post['priority']);
+        $this->due_date = self::filterString($post['date']);
+
         $query = $this->conn->prepare("INSERT INTO todo
-        (id, user_id, title, description, priority, due_date) VALUE(?,?,?,?,?,?)");
+        (list_id, user_id, title, description, priority, due_date) VALUE(?,?,?,?,?,?)");
+
         $query->bind_param(
             'ssssss',
             $this->id,
@@ -67,6 +68,20 @@ class Todo
         return $arrOfList;
     }
 
+    public function popUp($id)
+    {
+        $id = $id['id'];
+        $query = $this->conn->query("SELECT * FROM todo WHERE list_id = '{$id}'");
+        $arrOfList = [];
+        if (mysqli_num_rows($query) === 1) {
+            while ($data = $query->fetch_assoc()) {
+                $arrOfList[] = $data;
+            }
+        }
+
+        return $arrOfList;
+    }
+
     public function updateTodo()
     {
     }
@@ -74,7 +89,7 @@ class Todo
     public function deleteTodo($id): bool|string
     {
         $query = $this->conn->prepare("DELETE  FROM todo WHERE id = ?");
-        $query->bind_param('i', $id);
+        $query->bind_param('s', $id['del_id']);
         if ($query->execute()) {
             return true;
         } else {
@@ -95,10 +110,5 @@ class Todo
     {
         $uniqid = (uniqid());
         return $uniqid;
-    }
-
-    public function __destruct()
-    {
-        $this->conn->close();
     }
 }
