@@ -322,10 +322,11 @@ header {
 
 @media screen and (max-width: 600px) {
   .model {
-    padding: 20px;
-    width: 45vh;
-    height: fit-content;
-    left: 2vh;
+    margin-top: 40px;
+    padding: 15px;
+    width: 55vh;
+    height: auto;
+    left: 0.4vh;
   }
   .model-title {
     font-size: 20px;
@@ -334,7 +335,7 @@ header {
     margin-top: 4px;
   }
   .model-foot {
-    margin-top: -10px;
+    margin-top: 10px;
   }
   .title.fs-3 {
     margin-right: 4px;
@@ -407,9 +408,9 @@ option {
 @media screen and (max-width: 600px) {
   .model-2 {
     padding: 20px;
-    width: 45vh;
-    height: 60vh;
-    left: 2vh;
+    width: 55vh;
+    height: 70vh;
+    left: 0vh;
   }
   textarea {
     width: 300px;

@@ -8,7 +8,6 @@
                 <?php elseif ($list['priority'] === 'high') : ?>
                     <div class="color red"></div>
                 <?php endif; ?>
-                <!-- <?= $list['list_id'] ?> -->
                 <h6 class="title v4"><?= $list['title'] ?></h6>
             </div>
             <form action="#">
