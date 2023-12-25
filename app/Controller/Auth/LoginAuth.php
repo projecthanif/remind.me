@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Auth;
 
 use App\Model\User;
-
-
+use App\View;
 
 class LoginAuth
 {
@@ -14,9 +13,9 @@ class LoginAuth
     public function index()
     {
         if (!isset($_SESSION['name'])) {
-            include_once dirname(__DIR__) . "/../../view/" . "login.php";
+            View::make('login');
         } else {
-            header("Location: /todo");
+            header('Location: /todo');
         }
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\App;
+use App\View;
 use App\Model\Todo;
 
 
@@ -24,8 +26,8 @@ class HomeController
         if ($_GET) {
             $modelView = $this->todo->popUp($_GET);
         }
-
-        require_once dirname(__FILE__) . "/../../view/" . "list.php";
+        
+        View::make('list');
     }
 
     public function store()

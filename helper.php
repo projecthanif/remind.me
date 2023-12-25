@@ -6,3 +6,7 @@ function ddd($argv) {
     echo "</pre>";
     exit;
 }
+
+function view(string $info) {
+    
+}

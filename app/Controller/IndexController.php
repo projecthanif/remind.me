@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Controller;
+
+use App\View;
+
 class IndexController {
     public function index() {
-        include dirname(__FILE__) . "/../../view/" . "index.php";
+        View::make('index');
     }
 }

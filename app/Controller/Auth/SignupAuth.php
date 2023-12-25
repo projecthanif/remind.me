@@ -3,15 +3,14 @@
 namespace App\Controller\Auth;
 
 use App\Model\User;
-
-
+use App\View;
 
 class SignupAuth
 {
     public function index()
     {
         if (!isset($_SESSION['name'])) {
-            require_once(dirname(__DIR__) . "/../../view/signup.php");
+            View::make('signup');
         } else {
             header("Location: /");
         }

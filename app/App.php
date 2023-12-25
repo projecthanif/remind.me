@@ -13,9 +13,13 @@ use App\Exception\RouteNotFoundException;
 class App
 {
     protected static mysqli $db;
+    private View $view;
 
-    public function __construct(protected Route $route, protected array $request, protected array $config)
-    {
+    public function __construct(
+        protected Route $route,
+        protected array $request,
+        protected array $config
+    ) {
         try {
             App::$db = (new DB($config))->config();
         } catch (\mysqli_sql_exception $e) {
@@ -37,4 +41,10 @@ class App
             View::make('error/404');
         }
     }
+
+    // public function view(string $info)
+    // {
+    //     $this->view = View::make($info);
+    //     return $this->view;
+    // }
 }
