@@ -27,7 +27,8 @@ class HomeController
             $modelView = $this->todo->popUp($_GET);
         }
         
-        View::make('list');
+        require_once View::make('list');
+        
     }
 
     public function store()

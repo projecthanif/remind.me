@@ -60,7 +60,7 @@
         <?php if (!empty($lists)) : ?>
 
           <?php foreach ($lists as $list) : ?>
-
+            
             <?php require(dirname(__FILE__) . "/../view/partials/card.php") ?>
 
           <?php endforeach; ?>

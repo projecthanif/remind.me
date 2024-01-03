@@ -22,7 +22,7 @@ class Todo
         $this->conn = App::db();
     }
 
-    public function createTodo($post): bool
+    public function createTodo($post)
     {
         if (empty($post['description'] && $post['title'])) {
             return header('Location: /todo');
@@ -64,7 +64,7 @@ class Todo
                 $arrOfList[] = $data;
             }
         }
-
+        // ddd($arrOfList);
         return $arrOfList;
     }
 

@@ -25,7 +25,8 @@ class User
         }
     }
 
-    public function addNewUser($post) {
+    public function addNewUser($post)
+    {
         $this->id = self::uniqid();
         $this->name = self::filterInput($post['username']);
         $this->email = self::filterEmail($post['email']);
@@ -49,7 +50,7 @@ class User
 
         $this->email = self::filterEmail($post['email']);
         $query = $this->conn->query("SELECT * FROM users WHERE email = '{$this->email}'");
-        
+
         if (mysqli_num_rows($query) === 1) {
             $data = $query->fetch_assoc();
             $this->password = self::passwordVerify($post['password'], $data["password"]);
