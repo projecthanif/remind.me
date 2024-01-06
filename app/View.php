@@ -2,7 +2,7 @@
 
 namespace App;
 
-class View
+final class View
 {
     public static function make(string $type)
     {
