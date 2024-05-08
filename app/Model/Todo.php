@@ -22,7 +22,7 @@ class Todo
         $this->conn = App::db();
     }
 
-    public function createTodo($post)
+    public function createTodo(array $post): ?bool
     {
         if (empty($post['description'] && $post['title'])) {
             return header('Location: /todo');
@@ -68,7 +68,7 @@ class Todo
         return $arrOfList;
     }
 
-    public function popUp($id)
+    public function popUp($id): array
     {
         $id = $id['id'];
         $query = $this->conn->query("SELECT * FROM todo WHERE list_id = '{$id}'");
@@ -106,7 +106,7 @@ class Todo
         return $value;
     }
 
-    private function uniqId()
+    private function uniqId(): string
     {
         $uniqid = (uniqid());
         return $uniqid;

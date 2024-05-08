@@ -47,3 +47,4 @@ $uri = parse_url($_SERVER['REQUEST_URI'])["path"];
     ],
     $_ENV
 ))->run();
+
