@@ -1,0 +1,1 @@
+It a good starting point for one learning about OOP in php
