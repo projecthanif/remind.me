@@ -1,17 +1,19 @@
 <?php
 
-namespace App\Routes;
+namespace Core;
 
 use App\Exception\RouteNotFoundException;
 
 class Route
 {
-    protected $router;
+    protected array $router;
+
     public function register(
-        string $requestMethod,
-        string $route,
-        callable| array $action
-    ): Route {
+        string         $requestMethod,
+        string         $route,
+        callable|array $action
+    ): Route
+    {
         $this->router[$requestMethod][$route] = $action;
         return $this;
     }
@@ -20,6 +22,7 @@ class Route
     {
         return $this->register('get', $route, $action);
     }
+
     public function post(string $route, callable|array $action): Route
     {
         return $this->register('post', $route, $action);
@@ -35,6 +38,9 @@ class Route
         return $this->register('update', $route, $action);
     }
 
+    /**
+     * @throws RouteNotFoundException
+     */
     public function resolve(string $requestUri, string $requestMethod)
     {
         $action = $this->router[$requestMethod][$requestUri] ?? null;
@@ -44,9 +50,10 @@ class Route
         }
 
         if (is_callable($action)) {
-            return call_user_func($action);
+            return $action();
         }
 
+//        dd($action);
         if (is_array($action)) {
             [$class, $action] = $action;
 

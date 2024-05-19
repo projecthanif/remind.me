@@ -7,13 +7,16 @@ use App\View;
 
 class SignupAuth
 {
-    public function index()
+
+    public function __construct()
     {
-        if (!isset($_SESSION['name'])) {
-            View::make('signup');
-        } else {
+        if (isset($_SESSION['name'])) {
             header("Location: /");
         }
+    }
+    public function index()
+    {
+        view('signup');
     }
 
     public function signup()

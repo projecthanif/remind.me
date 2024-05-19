@@ -13,7 +13,7 @@ class LoginAuth
     public function index()
     {
         if (!isset($_SESSION['name'])) {
-            View::make('login');
+            view('login');
         } else {
             header('Location: /todo');
         }

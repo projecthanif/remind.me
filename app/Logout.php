@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Core\App;
+
 class Logout
 {
     private \mysqli|bool $close;

@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace Core;
 
 use App\DB;
-use mysqli;
-use App\View;
-use App\Routes\Route;
 use App\Exception\RouteNotFoundException;
+use mysqli;
+use mysqli_sql_exception;
 
 class App
 {
@@ -20,24 +19,24 @@ class App
         protected array $config
     ) {
         try {
-            App::$db = (new DB($config))->config();
-        } catch (\mysqli_sql_exception $e) {
+            self::$db = (new DB($config))->config();
+        } catch (mysqli_sql_exception $e) {
             echo $e->getMessage() . " " . $e->getCode();
         }
     }
 
     public static function db(): mysqli
     {
-        return App::$db;
+        return self::$db;
     }
 
-    public function run()
+    public function run(): void
     {
 
         try {
             echo ($this->route)->resolve($this->request['uri'], strtolower($this->request['method']));
-        } catch (RouteNotFoundException $e) {
-            View::make('error/404');
+        } catch (RouteNotFoundException) {
+            view('error/404');
         }
     }
 }

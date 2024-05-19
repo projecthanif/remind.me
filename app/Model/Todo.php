@@ -2,8 +2,7 @@
 
 namespace App\Model;
 
-use App\App;
-
+use Core\App;
 
 
 class Todo

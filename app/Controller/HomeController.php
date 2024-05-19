@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
-use App\App;
-use App\View;
 use App\Model\Todo;
+use App\View;
 
 
 class HomeController
@@ -26,15 +25,14 @@ class HomeController
         if ($_GET) {
             $modelView = $this->todo->popUp($_GET);
         }
-        
-        require_once View::make('list');
-        
+
+        require_once view('list');
     }
 
     public function store()
     {
         $this->user_id = $_SESSION['id'] ?? '';
-        
+
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
             $return = (new Todo())->createTodo($_POST);

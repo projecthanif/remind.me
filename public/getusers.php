@@ -1,6 +1,7 @@
 <?php
 
-use App\App;
+use Core\App;
+
 require_once __DIR__ . '/index.php';
 require_once __DIR__ . '/../app/App.php';
 
